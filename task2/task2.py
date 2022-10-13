@@ -10,10 +10,10 @@ from random import *
 import os
 
 #приветсвие
-welcome_text = ('ПРИВЕТСТВУЮ ИГРОКИ!, Добро пожаловать в игру КОНФЕТКИ!\n'
+weltext = ('ПРИВЕТСТВУЮ ИГРОКИ!, Добро пожаловать в игру КОНФЕТКИ!\n'
                 'ДИСКЛЭЙМЕР! \n'
                 'Не рекомендуется лицам с сахарным диабетом')
-print(welcome_text)
+print(weltext)
 
 message = ['твоя очередь', 'твой шанс', 'бери больше', 'ну же\n',
            'бери быстрее', 'ты справишься','прощяй диета']
@@ -45,7 +45,7 @@ def player_vs_player():
 #ход игры
     while candies_total > 0:
         if count == 0:
-            step = int(input(f'\n{choice(message)} {lucky} = '))
+            step = int(input(f'\n{choice(message)} {lucky} '))
             if step > candies_total or step > max_take:
                 step = int(input(f'\nМожно взять только {max_take} конфет {lucky}, играй по правилам: '))
             candies_total = candies_total - step
