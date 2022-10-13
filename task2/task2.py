@@ -9,7 +9,7 @@
 from random import *
 import os
 
-
+#приветсвие
 welcome_text = ('ПРИВЕТСТВУЮ ИГРОКИ!, Добро пожаловать в игру КОНФЕТКИ!\n'
                 'ДИСКЛЭЙМЕР! \n'
                 'Не рекомендуется лицам с сахарным диабетом')
@@ -23,7 +23,7 @@ winmessage =['мои поздваления', 'ты настоящий маст�
 import random
 
 random_index = random.randrange(len(winmessage))
-
+#имена играков
 def player_vs_player():
     candies_total = 10
     max_take = 28
@@ -32,7 +32,7 @@ def player_vs_player():
     player_2 = input('Имя второго игрока: ')
 
 
-    #print('\nДля начала опеределим кто первый начнет игру.\n')
+    #определяем кто ходит первым
 
     x = randint(1, 2)
     if x == 1:
@@ -42,13 +42,12 @@ def player_vs_player():
         lucky = player_2
         loser = player_1
     print(f'Поздравляю {lucky} ты ходишь первым !')
-
+#ход игры
     while candies_total > 0:
         if count == 0:
             step = int(input(f'\n{choice(message)} {lucky} = '))
             if step > candies_total or step > max_take:
-                step = int(input(
-                    f'\nМожно взять только {max_take} конфет {lucky}, играй по правилам: '))
+                step = int(input(f'\nМожно взять только {max_take} конфет {lucky}, играй по правилам: '))
             candies_total = candies_total - step
         if candies_total > 0:
             print(f'\nОсталось {candies_total} конфет ')
@@ -67,7 +66,7 @@ def player_vs_player():
             count = 0
         else:
             print('КОНЕЦ ИГРЫ!')
-
+#победитель
     if count == 1:
         print(winmessage[random_index])
         print(f'ПОБЕДИТЕЛЬ {loser}' )
