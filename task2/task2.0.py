@@ -1,10 +1,10 @@
-# a) Добавьте игру против бота
+# Подумайте как наделить бота ""интеллектом""
 
 from random import *
 
 print('*'*100)
 #приветсвие
-weltext = ('ПРИВЕТСТВУЮ ИГРОКИ!, Добро пожаловать в игру КОНФЕТКИ! player vs Bot'
+weltext = ('ПРИВЕТСТВУЮ ИГРОКИ!, Добро пожаловать в игру КОНФЕТКИ player vs AI Bot!\n'
                 'ДИСКЛЭЙМЕР! '
                 'Не рекомендуется лицам с сахарным диабетом')
 print(weltext)
@@ -42,12 +42,24 @@ def player_vs_bot():
     while candies_total > 0:
         lucky += 1
         if players[lucky % 2]== 'Bot':
-            print(f'\n Ходит {players[lucky % 2]} \n Осталось {candies_total}.конфет. {choice(message)}: ')
+            print(f'\n Ходит {players[lucky % 2]} \n Осталось {candies_total} конфет. {choice(message)}: ')
+# умный бот  
+        while candies_total > 0:
+             lucky += 1
 
-            if candies_total > 0:
+        if players[lucky % 2] == 'Bot':
+            print(f'\nХодит {players[lucky%2]} \nОсталось {candies_total} конфет. \n{choice(message)}: ')
+
+            if candies_total < 29:
                 step = candies_total
-            
-            while step > max_take:
+            else:
+                delenie = candies_total // 28
+                step = candies_total - ((delenie*max_take)+1)
+                if step == -1:
+                    step = max_take -1
+                if step == 0:
+                    step = max_take
+            while step > 28 or step < 1:
                 step = randint(1,28)
             print(step)
 
@@ -63,4 +75,5 @@ def player_vs_bot():
 
 
 player_vs_bot()
-                
+
+
