@@ -23,16 +23,16 @@ def take_input(player_token):
         try:
             player_input = int(player_input)
         except:
-            print ("Некорректный ввод. Введите число")
+            print("Некорректный ввод. Введите число")
             continue
         if player_input >= 1 and player_input <= 9:
             if (str(field[player_input-1]) not in "XO"):
                 field[player_input-1] = player_token
                 valid = True
             else:
-                print ("Занятая клетка")
+                print("Занятая клетка")
         else:
-            print ("Некорректный ввод. Введите число от 1 до 9 чтобы походить.")
+            print("Некорректный ввод. Введите число от 1 до 9 чтобы походить.")
 def chek_win(field):
     vektor = ((0,1,2),(3,4,5),(6,7,8),
                (0,3,6),(1,4,7),(2,5,8),
@@ -42,7 +42,7 @@ def chek_win(field):
             return field[each[0]]
     return False
 
-def mein(fiald):
+def mein(field):
     count = 0
     win = False
     while not win:
@@ -60,7 +60,7 @@ def mein(fiald):
                 win = True
                 break
             if count == 9:
-                print("ничья")
+                print("Победила дружба!")
                 break
     init_field(field)
 mein(field)
